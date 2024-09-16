@@ -1,4 +1,4 @@
-Pizza management system 
+# Pizza management system 
 
 A pizza chef requests an automated system by which he does not have 
 to answer the phone to take orders. He requests a system by which the 
@@ -7,10 +7,10 @@ order is recorded in the system.
 
 The first customer to order a pizza is the first to be served. 
 The pizzeria menu is static and contains 4 pizzas: 
-• Margherita -> 5€ 
-• Ortolana -> 6€ 
-• Diavola -> 6.50€ 
-• Bufalina -> 7€ 
+- Margherita -> 5€ 
+- Ortolana -> 6€ 
+- Diavola -> 6.50€ 
+- Bufalina -> 7€ 
 
 The company expects to make a REST call to an endpoint to complete 
 an order. 
