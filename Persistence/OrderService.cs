@@ -8,10 +8,10 @@ public class OrderService : IOrderService
     private readonly IOrderRepository orderRepository;
     private readonly IOrderPizzaRepository orderPizzaRepository;
 
-    public OrderService(PizzaContext context)
+    public OrderService(IOrderRepository orderRepository,IOrderPizzaRepository orderPizzaRepository)
     {
-        orderRepository = new OrderRepository(context);
-        orderPizzaRepository = new OrderPizzaRepository(context);
+        this.orderPizzaRepository=orderPizzaRepository;
+        this.orderRepository=orderRepository;
     }
 
     public OrderDto GetLastOrder()
@@ -45,7 +45,6 @@ public class OrderService : IOrderService
         }
         var pendingOrders = orderRepository.GetOrders()
                                 .Where(x => !x.Completed && x.Id!=order.Id)
-                                .OrderBy(x => x.OrderTime)
                                 .Count();
         var total = orderRepository.GetOrders()
                                     .Where(x => x.Id==order.Id)

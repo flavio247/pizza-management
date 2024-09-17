@@ -10,7 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<PizzaContext>(opt =>
     opt.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=pizza-management;Integrated Security=SSPI;Persist Security Info=False;TrustServerCertificate=True"));
-builder.Services.AddTransient<IOrderService,OrderService>();
+builder.Services.AddScoped<IOrderService,OrderService>();
+builder.Services.AddScoped<IOrderRepository,OrderRepository>();
+builder.Services.AddScoped<IOrderPizzaRepository,OrderPizzaRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

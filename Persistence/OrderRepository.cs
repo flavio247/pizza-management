@@ -13,7 +13,7 @@ public class OrderRepository : BaseRepository , IOrderRepository
 
     public ICollection<Order> GetOrders()
     {
-        return context.Order.Include(x=>x.OrderPizzas).ThenInclude(x=>x.Pizza).ToList();
+        return [.. context.Order.Include(x=>x.OrderPizzas).ThenInclude(x=>x.Pizza)];
     }
 
     public Order InsertOrder(Order order)

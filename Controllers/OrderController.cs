@@ -10,12 +10,10 @@ namespace pizza_management.Controllers;
 public class OrderController : ControllerBase
 {
     private readonly IOrderService orderService;
-    private readonly PizzaContext context;
 
-    public OrderController(IOrderService orderService,PizzaContext context)
+    public OrderController(IOrderService orderService)
     {
         this.orderService = orderService;
-        this.context = context;
     }
 
     [HttpGet("GetLastOrder")]

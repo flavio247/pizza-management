@@ -4,13 +4,8 @@ using pizza_management.Patterns;
 
 namespace pizza_management.Patterns;
 
-public class OrderPizzaRepository : BaseRepository, IOrderPizzaRepository
+public class OrderPizzaRepository(PizzaContext context) : BaseRepository(context), IOrderPizzaRepository
 {
-    public OrderPizzaRepository(PizzaContext context):base(context)
-    {
-
-    }
-
     public void InsertOrderPizza(OrderPizza op)
     {
         context.Add(op);
